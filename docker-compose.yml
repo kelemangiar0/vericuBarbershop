@@ -1,0 +1,43 @@
+services:
+
+########## Angular ##########
+  frontend:
+    container_name: barberapp-frontend
+    build:
+      context: ./frontend_barberapp
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    command: "ng serve --host 0.0.0.0 --poll 2000 --port 4200"
+    volumes:
+      - ./frontend_barberapp:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+########## Django ##########
+  backend:
+    container_name: barberapp-backend
+    build:
+      context: ./backend_barberapp
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend_barberapp:/app
+    networks:
+      - app-network
+    environment:
+      - SECRET_KEY=verySecretKey
+      - DEBUG=True
+      - TRUST_PATH=./appMain/c2patool/
+      - TOOL_NAME=c2patool
+      - ENDPOINT_API=http://10.13.170.33:8000/api
+      - ENDPOINT_IPFS_GATEWAY=http://10.13.170.33:8080
+      - ENDPOINT_IPFS_CLUSTER=http://10.13.170.33:9094
+
+networks:
+  app-network:
+    driver: bridge

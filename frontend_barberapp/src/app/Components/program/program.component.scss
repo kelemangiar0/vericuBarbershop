@@ -1,0 +1,59 @@
+::ng-deep ol,
+::ng-deep ul{
+  padding-left: 0rem;
+}
+
+::ng-deep .p-inputtext, ::ng-deep .p-dropdown, ::ng-deep .p-inputtext:focus{
+    background-color: transparent;
+    border-radius: 0.25rem;
+    border-color: antiquewhite;
+    font-family: inherit;
+    color: #faebd799;
+    padding: 0.1rem;
+    min-width: 7.75rem;
+    min-height: auto;
+    
+}
+
+::ng-deep .p-dropdown-panel, ::ng-deep .p-dropdown-items{
+    background-color: #2c1f11;
+    color: antiquewhite;
+}
+
+::ng-deep .p-highlight{
+  background-color: rgba(223, 215, 191);
+  color:black;
+}
+
+.form-outline .form-control ~ .form-label {
+    color: #faebd799;
+}
+*:not(b):not(h1):not(p):not(a):hover {
+    color: rgba(250, 235, 215, 0.6);
+}
+*:focus{
+    background: #dfd7bf33;
+    color: antiquewhite;
+    
+}
+
+*{
+    border-color: antiquewhite;
+    color: antiquewhite;
+}
+
+::ng-deep path:not(#titleImage){
+    fill: antiquewhite;
+}
+
+::ng-deep .p-datepicker:not(.p-datepicker-inline), ::ng-deep .p-datepicker:not(.p-datepicker-inline) .p-datepicker-header, ::ng-deep .p-datepicker:not(.p-disabled) table td span:not(.p-highlight):not(.p-disabled):hover{
+    background-color: #2c1f11;
+}
+
+::ng-deep .p-datepicker table td.p-datepicker-today > span {
+    background-color: transparent;
+}
+
+::ng-deep td, ::ng-deep li, ::ng-deep button, ::ng-deep span{
+    color: antiquewhite;
+}

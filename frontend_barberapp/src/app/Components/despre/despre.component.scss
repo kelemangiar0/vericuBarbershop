@@ -1,0 +1,28 @@
+svg{
+    fill:#faebd7;
+}
+
+*{
+    color: #faebd7;
+    border-color: #faebd7;
+}
+
+.above-grid-text {
+    max-width: 80%; /* Setăm lățimea maximă pentru text */
+    margin: auto; /* Centrăm textul pe ecranele mici */
+}
+
+.img-fluid {
+    max-width: 100%; /* Asigurăm ca imaginea să fie responsivă */
+}
+
+#text {
+    font-size: larger;
+    text-align: center; /* Default alignment */
+}
+
+@media screen and (min-width: 768px) { /* Change alignment for screens larger than 768px */
+    #text {
+        text-align: left;
+    }
+}

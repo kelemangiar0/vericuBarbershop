@@ -1,0 +1,54 @@
+.square-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid with minimum column width of 300px */
+    gap: 50px; /* Increased gap between grid items */
+    padding-top: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 50px;
+  }
+  
+  .grid-item {
+    display: flex;
+    justify-content: center;
+    border: 2px solid antiquewhite; /* Adaugă o bordură de 2px solidă de culoare galbenă */
+    border-radius: 20px;
+    width: 100%; /* Asigură că fiecare element al gridului ocupă întreaga lățime a containerului său */
+  }
+  
+  .content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 270px;
+    height: 100%;
+  }
+  
+  .grid-image {
+    width: 80%;
+    height: auto;
+    margin: 50px;
+    fill: #968979;
+  }
+
+  h4{
+    margin: 30px;
+  }
+
+  h4,h2,h1,p{
+    color: antiquewhite;
+  }
+
+  .rounded-pill{
+    background-color: #faebd7;
+    color: black;
+  }
+
+  .rounded-pill:hover{
+    background-color: #968979;
+    color: black;
+  }
+
+  p{
+    min-height: 150px;
+  }

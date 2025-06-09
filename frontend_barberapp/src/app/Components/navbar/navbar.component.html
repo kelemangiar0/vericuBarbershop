@@ -1,0 +1,50 @@
+ <!-- Navbar -->
+ <nav id="nav" class="navbar navbar-expand-lg navbar-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2 " (click)="toHome()">
+        <img src="assets/logo.png" height="30" style="margin-top: -1px;"/>
+      </a>
+
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" (click)="buttonsNav.toggle()" aria-expanded="true" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample" mdbCollapse #buttonsNav="mdbCollapse">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+        </ul>
+        <!-- Left links -->
+        
+  
+        <div class=" d-grid gap-3 d-flex flex-column flex-md-row align-items-center">
+
+          <button mdbRipple rippleColor="orange" type="button" class="btn  rounded-pill" (click)="toDespre()">Despre mine</button>
+          <button mdbRipple rippleColor="orange" type="button" class="btn  rounded-pill" (click)="toGalerie()">Galerie</button>
+          <button mdbRipple rippleColor="orange" type="button" class="btn  rounded-pill" (click)="toContact()">Contact</button>
+
+          <button *ngIf="!isThereLoggedUser" id="login" mdbRipple rippleColor="orange" type="button" class="btn btn-outline-light rounded-pill" (click)="toAuth()">
+            <img src="assets/key.svg" class="me-1 mb-1"> Autentifică-te</button>
+
+            <button (click)="toProfile()" *ngIf="isThereLoggedUser" id="profile" mdbRipple rippleColor="orange" type="button" class="btn btn-outline-light rounded-pill">
+              <img src="assets/key.svg" class="me-1 mb-1">{{loggedUser?.Email}}</button>
+
+          <button id="program" mdbRipple rippleColor="orange" type="button" class="btn rounded-pill" (click)="toProgram() ">
+            <img src="assets/programare.svg" class="me-1 mb-1"> Programează-te</button>
+
+
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+
+    <button mdbRipple rippleColor="orange" type="button" class="btn fixed-top mt-4" id="scrollUpRight" *ngIf="activateGoTop" (click)="scrollToTop()">
+      <img src="assets/arrow-up.svg">
+    </button>
+  </nav>
+  <!-- Navbar -->

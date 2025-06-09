@@ -1,0 +1,13 @@
+*:not(b):not(h1):not(p):not(a):hover {
+    color: rgba(250, 235, 215, 0.6);
+}
+*:focus{
+    background: #dfd7bf33;
+    color: antiquewhite;
+    
+}
+
+*{
+    border-color: antiquewhite;
+    color: antiquewhite;
+}

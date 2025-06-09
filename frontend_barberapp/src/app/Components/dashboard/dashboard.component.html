@@ -1,0 +1,146 @@
+<div style="background: rgb(0,0,0); background: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(44, 31, 17) 100%);">
+  <div class="container-fluid d-flex flex-column align-items-center" style="background-color: transparent; min-height: 770px;">
+
+    <div style="text-align: center; padding: 50px;">
+      <svg style="max-height: 100px; width:auto; fill: #968979;" class="grid-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 482.21 458.6"><polygon points="482.21 175.17 322.51 141.47 241.1 0 159.7 141.47 0 175.17 109.39 296.31 92.09 458.6 241.1 392 390.11 458.6 372.82 296.31 482.21 175.17"></polygon></svg>
+      <h1>Contul meu</h1>
+    </div>
+
+    <mdb-tabs [pills]="true" [fill]="true" class="mb-4" style="width: 80%;">
+
+      <mdb-tab>
+        <ng-template mdbTabTitle><span><b>Programările mele</b></span></ng-template>
+        <ng-template mdbTabContent>
+          <!-- <div class="programari-table table-responsive">
+            <table class="table text-center">
+              <thead>
+                <tr>
+                  <th class="align-middle">Serviciu</th>
+                  <th class="align-middle">Data</th>
+                  <th class="align-middle">Ora</th>
+                  <th class="align-middle">Acțiuni</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let programare of programariData">
+                  <td class="align-middle">{{ programare.Serviciu }}</td>
+                  <td class="align-middle">{{ programare.Data }}</td>
+                  <td class="align-middle">{{ programare.Ora }}</td>
+                  <td class="align-middle">
+                    <button *ngIf="isFutureDateTime(programare.Data, programare.Ora)" id="delete" class="btn btn-outline-light rounded-pill" (click)="cancelProgramare(programare.ProgramareID)">Anulează</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div *ngIf="!programariData || programariData.length === 0">
+              <p>Nu există programări.</p>
+            </div>
+          </div> -->
+
+          <div class="square-grid justify-content-center align-items-center" style="padding: 40px;">
+            <div class="grid-item text-center" *ngFor="let programare of programariData">
+              <div class="content d-flex flex-column align-items-center">
+                <div class="grid-image">
+                  <svg *ngIf="isFutureDateTime(programare.Data, programare.Ora)" style="max-height: 100px; width:auto" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="m 6.5 0 c -3.578125 0 -6.5 2.921875 -6.5 6.5 s 2.921875 6.5 6.5 6.5 c 0.171875 0 0.332031 -0.019531 0.5 -0.03125 v -2.03125 c -0.167969 0.019531 -0.328125 0.0625 -0.5 0.0625 c -2.496094 0 -4.5 -2.003906 -4.5 -4.5 s 2.003906 -4.5 4.5 -4.5 s 4.5 2.003906 4.5 4.5 c 0 0.171875 -0.042969 0.332031 -0.0625 0.5 h 2.03125 c 0.011719 -0.167969 0.03125 -0.328125 0.03125 -0.5 c 0 -3.578125 -2.921875 -6.5 -6.5 -6.5 z m 0 3 c -0.277344 0 -0.5 0.222656 -0.5 0.5 v 2.5 h -1.5 c -0.277344 0 -0.5 0.222656 -0.5 0.5 s 0.222656 0.5 0.5 0.5 h 2 c 0.277344 0 0.5 -0.222656 0.5 -0.5 v -3 c 0 -0.277344 -0.222656 -0.5 -0.5 -0.5 z m 0 0" fill="antiquewhite"/><path d="m 8.875 8.070312 c -0.492188 0 -0.875 0.378907 -0.875 0.867188 v 6.195312 c 0 0.488282 0.382812 0.867188 0.875 0.867188 h 6.25 c 0.492188 0 0.875 -0.378906 0.875 -0.867188 v -6.195312 c 0 -0.488281 -0.382812 -0.867188 -0.875 -0.867188 z m 2.125 0.929688 h 2 v 2.5 s 0 0.5 -0.5 0.5 h -1 c -0.5 0 -0.5 -0.5 -0.5 -0.5 z m 0.5 4 h 1 c 0.277344 0 0.5 0.222656 0.5 0.5 v 1 c 0 0.277344 -0.222656 0.5 -0.5 0.5 h -1 c -0.277344 0 -0.5 -0.222656 -0.5 -0.5 v -1 c 0 -0.277344 0.222656 -0.5 0.5 -0.5 z m 0 0" class="warning"  fill="antiquewhite"/></svg>
+                  <svg *ngIf="!isFutureDateTime(programare.Data, programare.Ora)" style="max-height: 100px; width:auto" viewBox="0 0 24 24" id="done-music-collection" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color"><polyline id="secondary" points="7 9.63 9.25 11.88 13 8.13" style="fill: none; stroke: antiquewhite; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline><rect id="primary" x="3" y="3" width="14" height="14" rx="1" style="fill: none; stroke: antiquewhite; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></rect><path id="primary-2" data-name="primary" d="M7,21H17a4,4,0,0,0,4-4V5" style="fill: none; stroke: antiquewhite; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path></svg>
+                </div>
+                <h2>{{programare.Serviciu}}</h2>
+                <h4>{{programare.Data}} {{programare.Ora}}</h4>
+
+                <p *ngIf="!isFutureDateTime(programare.Data, programare.Ora)">Completă</p>
+                <button *ngIf="isFutureDateTime(programare.Data, programare.Ora)" id="delete" class="btn btn-outline-light rounded-pill" (click)="cancelProgramare(programare.ProgramareID)">Anulează</button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mdb-tab>
+
+
+      <mdb-tab><ng-template mdbTabTitle><span><b>Detalii personale</b></span></ng-template><ng-template mdbTabContent>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="text-center mb-4 d-flex justify-content-between align-items-center">
+                <p class="mb-0">Nume și prenume: {{ loggedInUser?.NumePrenume }}</p>
+                <button class="btn btn-outline-light rounded-pill" (click)="toggleModifyNumeForm()">Modifică</button>
+              </div>
+
+              <div class="text-center mb-4 d-flex justify-content-between align-items-center">
+                <p class="mb-0">Email: {{ loggedInUser?.Email }}</p>
+                <button class="btn btn-outline-light rounded-pill" (click)="toggleModifyEmailForm()">Modifică</button>
+              </div>
+
+              <div class="text-center mb-4 d-flex justify-content-between align-items-center">
+                <p class="mb-0">Telefon: {{ loggedInUser?.Telefon }}</p>
+                <button class="btn btn-outline-light rounded-pill" (click)="toggleModifyTelefonForm()">Modifică</button>
+              </div>
+
+              <div class="text-center mb-4 d-flex justify-content-between align-items-center">
+                <p class="mb-0">Parola: </p>
+                <button class="btn btn-outline-light rounded-pill" (click)="toggleModifyPasswordForm()">Modifică</button>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="modify-nume-form" *ngIf="showModifyNumeForm">
+                <div class="form-container">
+                  <h3>Modifică numele și prenumele</h3>
+                  <mdb-form-control class="mb-4 form-white">
+                    <input mdbInput type="text" class="form-control" [(ngModel)]="loggedInUser.NumePrenume" />
+                    <label mdbLabel class="form-label" for="modifyNume">Nume și prenume</label>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <div class="modify-email-form" *ngIf="showModifyEmailForm">
+                <div class="form-container">
+                  <h3>Modifică emailul</h3>
+                  <mdb-form-control class="mb-4 form-white">
+                    <input mdbInput type="text" class="form-control" [(ngModel)]="loggedInUser.Email" />
+                    <label mdbLabel class="form-label" for="modifyEmail">Email</label>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <div class="modify-telefon-form" *ngIf="showModifyTelefonForm">
+                <div class="form-container">
+                  <h3>Modifică numărul de telefon</h3>
+                  <mdb-form-control class="mb-4 form-white">
+                    <input mdbInput type="text" class="form-control" [(ngModel)]="loggedInUser.Telefon" />
+                    <label mdbLabel class="form-label" for="modifyTelefon">Telefon</label>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <div class="modify-password-form" *ngIf="showModifyPasswordForm">
+                <div class="form-container">
+                  <h3>Modifică parola</h3>
+                  <mdb-form-control class="mb-4 form-white">
+                    <input mdbInput type="password" class="form-control" [(ngModel)]="loggedInUser.Parola" />
+                    <label mdbLabel class="form-label" for="modifyParola">Parola</label>
+                  </mdb-form-control>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4" *ngIf="modifiedSomething">
+            <div class="col">
+              <div class="d-flex flex-column align-items-center">
+                <button class="btn btn-outline-light rounded-pill confirm mb-2" (click)="modifyUserDetails()">Salvează modificările</button>
+                <button class="btn btn-outline-light rounded-pill" (click)="showModifyNumeForm = false; showModifyEmailForm = false; showModifyTelefonForm = false; showModifyPasswordForm = false; modifiedSomething = false;">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </mdb-tab>
+      
+      <mdb-tab>
+        <ng-template mdbTabTitle><span><b>Deloghează-te</b></span></ng-template>
+        <ng-template mdbTabContent>
+          <div class="d-flex flex-column align-items-center">
+            <button (click)="onLogOut()" id="profile" mdbRipple rippleColor="orange" type="button" class="btn btn-outline-light rounded-pill">
+              <img src="assets/key.svg" class="me-1 mb-1">Deloghează-te</button>
+          </div>
+        </ng-template>
+      </mdb-tab>
+
+    </mdb-tabs>
+  </div>
+</div>

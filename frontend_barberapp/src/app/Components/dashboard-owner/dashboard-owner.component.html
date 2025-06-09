@@ -1,0 +1,258 @@
+<div style="background: rgb(0,0,0); background: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(44, 31, 17) 100%);">
+    <div class="d-flex flex-column align-items-center" style="background-color: transparent; min-height: 770px;">
+  
+      <!-- Div cu imagine și text -->
+      <div style="text-align: center; padding: 50px;">
+        <svg style="max-height: 100px; width:auto; fill: #968979;" class="grid-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 482.21 458.6"><polygon points="482.21 175.17 322.51 141.47 241.1 0 159.7 141.47 0 175.17 109.39 296.31 92.09 458.6 241.1 392 390.11 458.6 372.82 296.31 482.21 175.17"></polygon></svg>
+        <h1>OWNER DASHBOARD</h1>
+      </div>
+  
+      <!-- Tabs pentru detalii personale, programări și delogare -->
+      <mdb-tabs [pills]="true" [fill]="true" class="mb-4" style="width: 80%;">
+        <!-- Tab pentru detalii personale -->
+        <mdb-tab>
+          <ng-template mdbTabTitle><span><b>Administrează zile de lucru</b></span></ng-template>
+
+          <mdb-tabs [pills]="true" [fill]="true" class="mb-4" style="width: 80%;">
+            <mdb-tab title="Adaugă">
+              <form (ngSubmit)="submitForm()" class="d-flex flex-column align-items-center">
+                <div class="d-flex justify-content-center">
+                  <a>Data</a>
+                </div>
+                <div class="form-group text-center mb-3">
+                  <p-calendar [touchUI]="true" [readonlyInput]="true" [minDate]="minDateValue" [(ngModel)]="selectedProgramLucruDate" name="zi" [showIcon]="true" [iconDisplay]="'input'" [readonlyInput]="true" dateFormat="yy-mm-dd" required></p-calendar>
+                </div>
+    
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput class="form-control" type="string"  id="primaOra" name="primaOra" [(ngModel)]="selectedProgramLucruPrimaOra" required="true">
+                  <label mdbLabel class="form-label" for="primaOra">Prima Ora:</label>
+                </mdb-form-control>
+    
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput class="form-control" type="tel" id="numarOre" name="numarOre" [(ngModel)]="numarOre" required="true">
+                  <label mdbLabel class="form-label" for="numarOre">Numar Ore:</label>
+                </mdb-form-control>
+    
+                <button type="submit" class="btn btn-outline-light rounded-pill mb-4">Adaugă zi de lucru</button>
+              </form>
+            </mdb-tab>
+
+            <mdb-tab title="Șterge">
+              <form (ngSubmit)="deleteZiLucru()" class="d-flex flex-column align-items-center">
+              <div class="d-flex justify-content-center">
+                <a>Data</a>
+              </div>
+              <div class="form-group text-center mb-3">
+                <p-calendar [disabledDates]="invalidDates" [touchUI]="true" [readonlyInput]="true" [minDate]="minDateValue" [(ngModel)]="selectedProgramLucruDelete" name="zi" [showIcon]="true" [iconDisplay]="'input'" [readonlyInput]="true" dateFormat="yy-mm-dd" required></p-calendar>
+              </div>
+              <button type="submit" class="btn btn-outline-light rounded-pill mb-4">Șterge zi de lucru</button>
+            </form>
+            </mdb-tab>
+          </mdb-tabs>
+          
+        </mdb-tab>
+        
+
+        <mdb-tab>
+          <ng-template mdbTabTitle><span><b>Administrare servicii</b></span></ng-template>
+
+            <div class="modify-serviciu-form" *ngIf="showModifyServiciuForm">
+              <h3>Modifică detalii serviciu</h3>
+
+              <mdb-form-control class="mb-4 form-white">
+                <input mdbInput type="text" class="form-control" [(ngModel)]="selectedServiciu.Nume"/>
+                <label mdbLabel class="form-label" for="modifyNume">Nume</label>
+              </mdb-form-control>
+
+              <mdb-form-control class="mb-4 form-white">
+                <input mdbInput type="numeric" class="form-control" [(ngModel)]="selectedServiciu.Pret"/>
+                <label mdbLabel class="form-label" for="modifyPret">Pret</label>
+              </mdb-form-control>
+
+              <mdb-form-control class="mb-4 form-white">
+                <input mdbInput type="text" class="form-control" [(ngModel)]="selectedServiciu.Descriere"/>
+                <label mdbLabel class="form-label" for="modifyDescriere">Descriere</label>
+              </mdb-form-control>
+
+              <div class="text-center "><button class="btn btn-outline-light rounded-pill confirm" (click)="modifyServiciu()">Salvează modificări</button></div>
+              <div class="text-center"><button class="btn btn-outline-light rounded-pill" (click)="this.showModifyServiciuForm=False">Anulează</button></div>
+            </div>
+            <!-- Table to display Servicii -->
+
+            <div class="servicii-table table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th class="align-middle sort" (click)="sortTable('Nume')">Nume</th>
+                    <th class="align-middle sort" (click)="sortTable('Pret')">Pret</th>
+                    <th class="align-middle">Descriere</th>
+                    <th class="align-middle">Acțiuni</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let serviciu of servicii">
+                    <td class="align-middle">{{ serviciu.Nume }}</td>
+                    <td class="align-middle">{{ serviciu.Pret }}</td>
+                    <td class="align-middle">{{ serviciu.Descriere }}</td>
+                    <td class="align-middle">
+                      <button id="modify" class="btn btn-outline-light rounded-pill" (click)="toggleModifyServiciuForm(serviciu)">Modifică</button>
+                      <button id="delete" class="btn btn-outline-light rounded-pill" (click)="deleteServiciu(serviciu.ServiciuID)">Șterge</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>       
+            </div>
+
+            <div class="text-center mb-3"><button class="btn btn-outline-light rounded-pill" (click)="toggleAddServiciuForm()">Adaugă serviciu</button></div>
+
+            <div class="add-serviciu-form" *ngIf="showAddServiciuForm">
+              <h3>Adaugă alt serviciu</h3>
+
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="text" class="form-control" [(ngModel)]="newServiciu.Nume"/>
+                  <label mdbLabel class="form-label" for="registerName">Serviciu</label>
+                </mdb-form-control>
+
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="number" class="form-control" [(ngModel)]="newServiciu.Pret"/>
+                  <label mdbLabel class="form-label" for="registerName">Pret</label>
+                </mdb-form-control>
+
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="text" class="form-control" [(ngModel)]="newServiciu.Descriere"/>
+                  <label mdbLabel class="form-label" for="registerName">Descriere</label>
+                </mdb-form-control>
+
+                <div class="text-center"><button class="btn btn-outline-light rounded-pill confirm" (click)="addServiciu()">Adauga serviciu</button></div>
+                <div class="text-center"><button class="btn btn-outline-light rounded-pill" (click)="this.showAddServiciuForm=False">Anulează</button></div>
+            </div>
+          </mdb-tab>
+
+          <mdb-tab>
+            <ng-template mdbTabTitle><span><b>Administrare conturi</b></span></ng-template>       
+            <div class="modify-user-form" *ngIf="showModifyUserForm">
+              <div class="form-container">
+                <h3>Modifică detalii utilizator</h3>
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="text" class="form-control" [(ngModel)]="selectedUser.NumePrenume"/>
+                  <label mdbLabel class="form-label" for="modifyNume">Nume</label>
+                </mdb-form-control>
+            
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="text" class="form-control" [(ngModel)]="selectedUser.Email"/>
+                  <label mdbLabel class="form-label" for="modifyNume">Email</label>
+                </mdb-form-control>
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="text" class="form-control" [(ngModel)]="selectedUser.Telefon"/>
+                  <label mdbLabel class="form-label" for="modifyNume">Telefon</label>
+                </mdb-form-control>
+                <mdb-form-control class="mb-4 form-white">
+                  <input mdbInput type="text" class="form-control" [(ngModel)]="selectedUser.Rol"/>
+                  <label mdbLabel class="form-label" for="modifyNume">Rol</label>
+                </mdb-form-control>
+  
+                <div class="text-center "><button class="btn btn-outline-light rounded-pill confirm" (click)="modifyUser()">Salvează modificări</button></div>
+                <div class="text-center"><button class="btn btn-outline-light rounded-pill" (click)="this.showModifyUserForm=False">Cancel</button></div>
+              </div>
+            </div>
+            <div class="utilizatori-table table-responsive">
+               <!-- Modify User Form -->
+               
+              <table class="table text-center">
+                <!-- Table headers -->
+                <thead>
+                  <tr>
+                    <th class="align-middle sort" (click)="sortTable2('NumePrenume')">Nume Prenume</th>
+                    <th class="align-middle sort" (click)="sortTable2('Email')">Email</th>
+                    <th class="align-middle sort" (click)="sortTable2('Telefon')">Telefon</th>
+                    <th class="align-middle sort" (click)="sortTable2('Rol')">Rol</th>
+                    <th class="align-middle">Acțiuni</th>
+                  </tr>
+                </thead>
+                <!-- Table body -->
+                <tbody>
+                  <!-- Loop through each user -->
+                  <tr *ngFor="let user of utilizatori">
+                    <!-- Display user data -->
+                    <td class="align-middle">{{ user.NumePrenume }}</td>
+                    <td class="align-middle">{{ user.Email }}</td>
+                    <td class="align-middle">{{ user.Telefon }}</td>
+                    <td class="align-middle">{{ user.Rol }}</td>
+                    <td class="align-middle">
+                      <button id="modify" class="btn btn-outline-light rounded-pill" (click)="toggleModifyUserForm(user)">Modifică</button>
+                      <button id="delete" class="btn btn-outline-light rounded-pill" (click)="deleteUser(user.UserID)">Șterge</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </mdb-tab>
+
+
+
+        <!-- Tab pentru programări -->
+        <mdb-tab>
+          <ng-template mdbTabTitle><span><b>Statistici</b></span></ng-template>
+          <ng-template mdbTabContent>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Statistică</th>
+                  <th>Valoare</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Număr total de conturi înregistrate</td>
+                  <td>{{ totalConturiInregistrate }}</td>
+                </tr>
+                <tr>
+                  <td>|--------- dintre care clienți</td>
+                  <td>{{ conturiClienti }}</td>
+                </tr>
+                <tr>
+                  <td>|--------- dintre care administratori</td>
+                  <td>{{ conturiAdministratori }}</td>
+                </tr>
+                <tr>
+                  <td>Total zile la salon</td>
+                  <td>{{ totalZileLucru }}</td>
+                </tr>
+                <tr>
+                  <td>Număr total de programări efectuate</td>
+                  <td>{{ totalProgramari }}</td>
+                </tr>
+                <tr>
+                  <td>|--------- dintre care programări viitoare (începând de mâine)</td>
+                  <td>{{ programariUrmatoare }}</td>
+                </tr>
+                <tr>
+                  <td>Număr de slot-uri valabile în viitor pentru programare</td>
+                  <td>{{ sloturiValabile }}</td>
+                </tr>
+                <tr>
+                  <td>Servicii oferite</td>
+                  <td>{{ serviciiOferite }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </ng-template>
+        </mdb-tab>
+        
+
+
+
+
+        <mdb-tab>
+          <ng-template mdbTabTitle><span><b>Deloghează-te</b></span></ng-template>
+          <ng-template mdbTabContent>
+            <div class="d-flex flex-column align-items-center">
+              <button (click)="onLogOut()" id="profile" mdbRipple rippleColor="orange" type="button" class="btn btn-outline-light rounded-pill">
+                <img src="assets/key.svg" class="me-1 mb-1">Deloghează-te</button>
+            </div>
+          </ng-template>
+        </mdb-tab>
+      </mdb-tabs>
+    </div>
+  </div>
+  

@@ -1,0 +1,25 @@
+*{
+    border-color: antiquewhite;
+    color: antiquewhite;
+}
+*:focus{
+    background: #dfd7bf33;
+    color: antiquewhite;
+    
+}
+*:not(b):not(h1):hover {
+    color: rgba(250, 235, 215, 0.6);
+}
+
+.form-outline .form-control ~ .form-label {
+    color: #faebd799;
+}
+
+b{
+    color: black;
+    font-weight: normal;
+}
+.form-check-input[type='checkbox']:checked {
+    background-color: #e6b37c;
+    border-color: #e6b37c;
+  }

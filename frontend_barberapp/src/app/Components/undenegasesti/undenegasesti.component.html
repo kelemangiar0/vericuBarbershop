@@ -1,0 +1,86 @@
+<div style=" background: rgb(0,0,0);
+ background: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(44, 31, 17) 100%);">
+     <!-- New div with image and text -->
+     <div style="text-align: center; padding: 50px;">
+      <svg style="max-height: 100px; width:auto; fill: #968979;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 12.13"><path d="M7,0.93c-3.87,0-7,2.46-7,5.5a4.91,4.91,0,0,0,1.85,3.73,4.47,4.47,0,0,1-.94,2.9,6.33,6.33,0,0,0,3.52-1.51A8.65,8.65,0,0,0,7,11.93c3.87,0,7-2.46,7-5.5S10.87,0.93,7,.93Z" transform="translate(0 -0.93)"></path></svg>
+       <h1>Contact</h1>
+     </div>
+
+     <div class="contact-container d-flex flex-wrap justify-content-center">
+      <!-- Detalii de contact în partea stângă -->
+      <div class="contact-details p-3">
+        <h3>Detalii de contact</h3>
+        <div class="contact-info">
+          <div class="contact-info-item d-flex flex-wrap mb-3 mt-4 align-items-center">
+            <h5> PFA Vericu' Barbershop</h5>
+          </div>
+          <div class="contact-info-item d-flex flex-wrap mb-3 align-items-center">
+            <a mdbRipple rippleColor="orange" class="btn btn-outline-light btn-floating" href="tel:+40752816855" role="button" target="_blank">
+              <i class="fa-solid fa-phone"></i>
+            </a>
+            <p class="mb-0">+40 752 816 855</p>
+          </div>
+          <div class="contact-info-item d-flex flex-wrap mb-3 align-items-center">
+            <a mdbRipple rippleColor="orange" class="btn btn-outline-light btn-floating" href="mailto:vericubarbershop@gmail.com" role="button" target="_blank">
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+            <p class="mb-0">contact&#64;vericubarbershop.com</p>
+          </div>
+          <div class="contact-info-item d-flex flex-wrap mb-3 align-items-center">
+            <a mdbRipple rippleColor="orange" class="btn btn-outline-light btn-floating" href="https://www.google.com/maps/place/Str.+Sp%C4%83tarul+Preda+5,+Bucure%C8%99ti+052034/@44.410083,26.0822427,18z/data=!4m6!3m5!1s0x40b1ffa1795a9c41:0xc93878a513a46bbc!8m2!3d44.4100133!4d26.0822391!16s%2Fg%2F11vc3b253t?entry=ttu" role="button" target="_blank">
+              <i class="fa-solid fa-location-dot"></i>
+            </a>
+            <p class="mb-0">Str. Spătarul Preda 5</p>
+          </div>
+        </div>
+      </div>
+    
+    
+      <!-- Formular în partea dreaptă -->
+      <div class="contact-form p-3">
+        <h3>Trimiteți un mesaj</h3>
+
+        <form (ngSubmit)="sendMessage()" autocomplete="off" class="mt-4">
+          <div id="showIfNotLoggedIn" *ngIf="!userService.isUserLoggedIn()">
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput [(ngModel)]="nume" name="nume" type="text" id="numePrenume" class="form-control" required="true"/>
+            <label mdbLabel class="form-label" for="registerName">Nume și Prenume</label>
+          </mdb-form-control>
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput [(ngModel)]="email" name="email" type="email" id="telefon" class="form-control" required="true"/>
+            <label mdbLabel class="form-label" for="registerName">Email</label>
+          </mdb-form-control>
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput [(ngModel)]="telefon" name="telefon" type="tel" id="email" class="form-control" required="true"/>
+            <label mdbLabel class="form-label" for="registerName">Telefon</label>
+          </mdb-form-control>
+        </div>
+
+        <div id="userInfo" class="d-flex mb-5 " *ngIf="userService.isUserLoggedIn()">
+          <p>Mesaj semnat de {{userService.getUserName()}}, folosind adresa de email {{userService.getUserEmail()}} și numărul de telefon {{userService.getUserPhone()}}</p>
+        </div>
+
+          <mdb-form-control class="mb-4 form-white">
+            <textarea mdbInput [(ngModel)]="mesaj" name="mesaj" class="form-control" id="form4Example3" rows="4" required="true"></textarea>
+            <label mdbLabel class="form-label" for="form4Example3">Mesaj</label>
+          </mdb-form-control>
+
+
+          <div class="d-flex justify-content-center">
+            <button id="login1" mdbRipple rippleColor="orange" type="submit" class="btn btn-outline-light rounded-pill mb-4">Trimite mesaj</button>
+          </div>
+
+        </form>
+
+      </div>
+
+
+    </div>
+
+<div class="map-container">
+  <google-map #map class="square-map" [height]="mapHeight" [width]="'100%'" [center]="center" [zoom]="zoom" (mapClick)="moveMap($event)">
+    <map-marker [position]="locatie"></map-marker>
+  </google-map>
+</div>
+
+</div>

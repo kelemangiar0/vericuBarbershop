@@ -1,0 +1,69 @@
+.contact-details {
+  margin-bottom: 20px;
+}
+
+.square-map {
+  max-height: calc(70vh - 20px); /* Ajustează înălțimea hărții în funcție de înălțimea disponibilă a ecranului */
+}
+
+.map-container {
+  width: 100%;
+  overflow: hidden; /* Asigură că harta nu depășește lățimea ecranului */
+}
+
+
+.contact-container {
+  flex-direction: column;
+}
+
+@media (min-width: 576px) {
+  .contact-container {
+    flex-direction: row;
+  }
+}
+
+.contact-details,
+.contact-form {
+  flex: 1;
+  margin: 10px;
+}
+
+.contact-form {
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+*{
+  color: antiquewhite;
+  border-color: antiquewhite;
+}
+
+*:not(b):not(h1):not(h3):not(h5):hover {
+  color: rgba(250, 235, 215, 0.6);
+}
+*:focus{
+  background: #dfd7bf33;
+  color: antiquewhite;
+  
+}
+
+
+.form-outline .form-control ~ .form-label {
+  color: #faebd799;
+}
+
+b{
+  color: black;
+  font-weight: normal;
+}
+
+a:hover{
+  background: #dfd7bf33;
+}
+
+a{
+  margin-right: 10px;
+}

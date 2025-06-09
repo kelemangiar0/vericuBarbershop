@@ -1,0 +1,50 @@
+Date: 13/6/2024
+Time: 12:26
+Phone Number: +407
+Message: Salut Florin, rezervarea Standard de pe data de 2024-06-17 ora 14:20 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 13/6/2024
+Time: 12:27
+Phone Number: +407
+Message: Salut Florin, rezervarea Standard de pe data de 2024-06-17 ora 15:20 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 7/7/2024
+Time: 18:19
+Phone Number: +407
+Message: Salut Test, rezervarea Standard de pe data de 2024-07-08 ora 15:20 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 7/7/2024
+Time: 18:36
+Phone Number: +407
+Message: Salut Florin, rezervarea Standard de pe data de 2024-07-08 ora 14:20 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 8/7/2024
+Time: 13:59
+Phone Number: +407
+Message: Salut Morteci Theodor, rezervarea Superior de pe data de 2024-07-09 ora 16:00 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 8/7/2024
+Time: 14:5
+Phone Number: +4588
+Message: Salut tyy, rezervarea Premium de pe data de 2024-07-09 ora 18:00 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 9/6/2025
+Time: 15:27
+Phone Number: +4123
+Message: Salut Test, rezervarea Elite de pe data de 2025-06-10 ora 16:00 a fost confirmata! Te astept cu drag in salon!
+--------------------
+Date: 9/6/2025
+Time: 15:30
+Phone Number: +4123
+Message: Salut Test, rezervarea Elite de pe data de 2025-06-10 ora 16:00:00 a fost anulată din cauza anulării zilei de lucru! Vezi alte date disponibile.
+--------------------
+Date: 9/6/2025
+Time: 15:33
+Phone Number: +4owner
+Message: Salut owner, rezervarea Basic de pe data de 2025-06-10 ora 16:00:00 a fost anulată din cauza anulării zilei de lucru! Vezi alte date disponibile.
+--------------------
+Date: 9/6/2025
+Time: 15:34
+Phone Number: +4owner
+Message: Salut owner, rezervarea Basic de pe data de 2025-06-10 ora 16:00:00 a fost anulată din cauza anulării zilei de lucru! Vezi alte date disponibile.
+--------------------

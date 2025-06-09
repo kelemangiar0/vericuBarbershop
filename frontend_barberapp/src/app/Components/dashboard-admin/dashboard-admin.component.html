@@ -1,0 +1,60 @@
+<div style="background: rgb(0,0,0); background: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(44, 31, 17) 100%);">
+    <div class="d-flex flex-column align-items-center" style="background-color: transparent; min-height: 770px;">
+  
+      <!-- Div cu imagine și text -->
+      <div style="text-align: center; padding: 50px;">
+        <svg style="max-height: 100px; width:auto; fill: #968979;" class="grid-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 482.21 458.6"><polygon points="482.21 175.17 322.51 141.47 241.1 0 159.7 141.47 0 175.17 109.39 296.31 92.09 458.6 241.1 392 390.11 458.6 372.82 296.31 482.21 175.17"></polygon></svg>
+        <h1>ADMIN DASHBOARD</h1>
+      </div>
+  
+      <!-- Tabs pentru detalii personale, programări și delogare -->
+      <mdb-tabs [pills]="true" [fill]="true" class="mb-4" style="width: 80%;">
+  
+        <!-- Tab pentru programări -->
+        <mdb-tab>
+          <ng-template mdbTabTitle><span><b>Administrare programări</b></span></ng-template>
+          <ng-template mdbTabContent>
+            <div class="programari-table table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th class="align-middle sort" (click)="sortTable('NumeUser')">Nume</th>
+                    <th class="align-middle sort" (click)="sortTable('Telefon')">Telefon</th>
+                    <th class="align-middle sort" (click)="sortTable('Serviciu')">Serviciu</th>
+                    <th class="align-middle sort" (click)="sortTable('Data')">Data</th>
+                    <th class="align-middle sort" (click)="sortTable('Ora')">Ora</th>
+                    <th class="align-middle">Acțiuni</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let programare of programari">
+                    <td class="align-middle">{{ programare.NumeUser }}</td>
+                    <td class="align-middle">{{ programare.Telefon }}</td>
+                    <td class="align-middle">{{ programare.Serviciu }}</td>
+                    <td class="align-middle">{{ programare.Data }}</td>
+                    <td class="align-middle">{{ programare.Ora }}</td>
+                    <td class="align-middle" >
+                      <button *ngIf="isFutureDateTime(programare.Data, programare.Ora)" id="delete" class="btn btn-outline-light rounded-pill" (click)="deleteProgramare(programare.ProgramareID)">Sterge</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-template>
+        </mdb-tab>
+
+  
+        <!-- Tab pentru delogare -->
+        <mdb-tab>
+          <ng-template mdbTabTitle><span><b>Deloghează-te</b></span></ng-template>
+          <ng-template mdbTabContent>
+            <div class="d-flex flex-column align-items-center">
+              <button (click)="onLogOut()" id="profile" mdbRipple rippleColor="orange" type="button" class="btn btn-outline-light rounded-pill">
+                <img src="assets/key.svg" class="me-1 mb-1">Deloghează-te</button>
+            </div>
+          </ng-template>
+        </mdb-tab>
+      </mdb-tabs>
+    </div>
+  </div>
+  

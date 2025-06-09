@@ -1,0 +1,77 @@
+<div class="bg-image" style="min-height: 770px;">
+    <div class="mask" style=" background: rgb(0,0,0);
+  background: linear-gradient(120deg, rgba(0,0,0,1) 0%, #2c1f11 100%);">
+  
+    <div name="header">
+      <div style="text-align: center; padding: 50px;">
+        <svg style="max-height: 100px; width:auto; fill: #968979;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 479.87 512"> <path  id="titleImage" d="M265.87,379.28a16,16,0,0,1-11.27,4.66h-.75a16,16,0,0,1-11.53-5.77L212,341.46a15.93,15.93,0,0,1,24.57-20.29l19.16,23.18L310.09,290A80.07,80.07,0,1,0,328,317.14Z" transform="translate(-16.07)"></path> <path id="titleImage" d="M16.07,191.48V496.07A15.93,15.93,0,0,0,32,512H480a15.93,15.93,0,0,0,15.93-15.93V191.48Zm349.59,88-13.74,13.73a112.21,112.21,0,1,1-19.31-25.75L343.13,257a15.93,15.93,0,0,1,22.53,22.54Z" transform="translate(-16.07)"></path> <path id="titleImage" d="M495.93,159.61V48.07A15.94,15.94,0,0,0,480,32.13H421.31V80.07a47.94,47.94,0,0,1-95.87,0V32.13H186.56V80.07a47.94,47.94,0,0,1-95.87,0V32.13H32A15.94,15.94,0,0,0,16.07,48.07V159.61Z" transform="translate(-16.07)"></path> <path id="titleImage" d="M138.62,96.13a16.08,16.08,0,0,0,16.07-16.06v-64a16.07,16.07,0,1,0-32.13,0v64A16.07,16.07,0,0,0,138.62,96.13Z" transform="translate(-16.07)"></path> <path id="titleImage" d="M373.38,96.13a16.07,16.07,0,0,0,16.06-16.06v-64a16.07,16.07,0,1,0-32.13,0v64A16.08,16.08,0,0,0,373.38,96.13Z" transform="translate(-16.07)"></path> </svg>        
+        <h1>Programare online</h1>
+      </div>
+    </div>
+
+      <form>
+        
+        <div class="d-flex justify-content-center">
+            <a>Serviciu</a>
+        </div>
+
+        <div class="d-flex justify-content-center mb-1">
+        <p-dropdown [options]="availableServices" [(ngModel)]="selectedService" name="selectedService" required="true"></p-dropdown>
+        </div>
+
+        <div class="d-flex justify-content-center mb-2">
+          <button mdbRipple rippleColor="orange" type="submit" class="btn btn-outline-light btn-sm rounded-pill mb-3" (click)="toServicii()">Vezi servicii</button>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <a>Data</a>
+        </div>
+
+        <div class="d-flex justify-content-center mb-5">
+          <!-- [disabledDays]="[0,6]" -->
+          <p-calendar [disabledDates]="invalidDates"  [touchUI]="true" [minDate]="minDateValue" [maxDate]="maxDateValue" [readonlyInput]="true" [iconDisplay]="'input'" [showIcon]="true" dateFormat="dd/mm/yy" [(ngModel)]="selectedDate" name="selectedDate" (onSelect)="onDateSelect($event)" required="true"></p-calendar>
+        </div>
+
+        <div class="d-flex justify-content-center mb-5">
+            <div *ngIf="selectedDate">
+                <div class="d-flex justify-content-center">
+                    <a>Ora</a>
+                </div>
+        
+            <p-dropdown [options]="availableHours" [(ngModel)]="selectedHour" name="selectedHour"></p-dropdown>
+            </div>
+        </div>
+
+        <!-- daca nu s-a logat utilizator, atunci am nevoie de un nume si un nr de telefon -->
+        <div id="showIfNotLoggedIn" class="d-flex justify-content-center mb-5" *ngIf="!userService.isUserLoggedIn()">
+        <mdb-form-control class="mb-4 form-white">
+            <input mdbInput [(ngModel)]="numePrenume" type="text" id="numePrenume" class="form-control" name="numePrenume" required="true"/>
+            <label mdbLabel class="form-label" for="numePrenume">Nume și Prenume</label>
+          </mdb-form-control>
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput [(ngModel)]="telefon" type="tel" id="telefon" class="form-control" name="numePrenume" required="true"/>
+            <label mdbLabel class="form-label" for="telefon">Telefon</label>
+          </mdb-form-control>
+        </div>
+
+
+        <!-- daca exista utilizator logat iau datele lui -->
+        <div id="userInfo" class="d-flex justify-content-center align-items-center mb-5 text-center" *ngIf="userService.isUserLoggedIn()">
+          <p>Programarea va fi făcută pe numele {{userService.getUserName()}} și numărul de telefon {{userService.getUserPhone()}}</p>
+        </div>
+
+
+        
+        <div class="d-flex justify-content-center mb-5">
+          <!--*ngIf="userService.getUserRole() !== 'Owner' && userService.getUserRole() !== 'Admin'"-->
+            <button    (click)="onSubmit()" mdbRipple rippleColor="orange" type="submit" class="btn btn-outline-light rounded-pill mb-3">Programează-te</button>
+        </div>
+
+        
+      </form>
+      
+      
+
+
+</div>
+</div>

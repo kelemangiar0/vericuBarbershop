@@ -1,0 +1,54 @@
+#scrollUpRight{
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  
+    width: 5px;
+    height: 40px;
+  
+    margin-top: 1%;
+    
+    background-color: antiquewhite;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+  
+    border-radius: 50%;
+  }
+  
+  
+#nav
+{
+  background: rgb(0,0,0);
+background: linear-gradient(15deg, rgba(0,0,0,1) 0%, #7a542b 100%);
+}
+
+button:hover{
+  background: #dfd7bf33;
+  color: antiquewhite;
+}
+
+button{
+  color: antiquewhite;
+}
+
+#program{
+  background-color: #faebd7;
+  color: black;
+}
+#program:hover{
+  background-color: #e6b37c;
+  color: black;
+}
+#login{
+  border-color: antiquewhite;
+}
+
+a:hover{
+  cursor: pointer;
+}

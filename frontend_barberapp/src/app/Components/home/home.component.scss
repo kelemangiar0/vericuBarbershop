@@ -1,0 +1,16 @@
+#mainImage{
+    background-image: url('./homeBackground.png');
+    min-height: 200px;
+    height: calc(100vh);
+}
+
+a{
+    color: #faebd7;
+    border-color: #faebd7;
+}
+
+
+a:hover{
+    background: #dfd7bf33;
+    color: antiquewhite;
+  }

@@ -1,0 +1,81 @@
+<div class="bg-image" style="min-height: 770px;">
+  <div class="mask" style=" background: rgb(0,0,0); background: linear-gradient(120deg, rgba(0,0,0,1) 0%, rgba(44, 31, 17) 100%);">
+
+  <div class="d-flex flex-column align-items-center" style="background-color: transparent;">
+    <div style="text-align: center; padding: 50px;">
+      <svg style="max-height: 100px; width:auto; fill: #968979;" class="grid-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 482.21 458.6"><polygon points="482.21 175.17 322.51 141.47 241.1 0 159.7 141.47 0 175.17 109.39 296.31 92.09 458.6 241.1 392 390.11 458.6 372.82 296.31 482.21 175.17"></polygon></svg>
+      <h1>Autentificare</h1>
+    </div>
+
+    <mdb-tabs [pills]="true" [fill]="true" class="mb-4">
+      <mdb-tab><ng-template mdbTabTitle><span><b>Intră în cont</b></span></ng-template>
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="off" name="login">
+          <mdb-form-control  class="mb-4 form-white">
+            <input formControlName="Email" mdbInput type="email" class="form-control"/>
+            <label mdbLabel class="form-label" for="loginName">Email</label>
+          </mdb-form-control>
+    
+          <mdb-form-control class="mb-4 form-white">
+            <input formControlName="Parola" mdbInput type="password" class="form-control"/>
+            <label mdbLabel class="form-label" for="loginPassword">Parola</label>
+          </mdb-form-control>
+    
+          <div class="form-check d-flex justify-content-center mb-4">
+            <input formControlName="checkboxLogin" mdbCheckbox class="form-check-input me-2" type="checkbox" value="" [checked]="false"/>
+            <label class="form-check-label" for="loginCheck">Ține-mă minte data viitoare</label>
+          </div>
+    
+            <!-- <div class="d-flex justify-content-center mb-3">
+              <a href="#!">Ai uitat parola?</a>
+            </div> -->
+
+          <div class="d-flex justify-content-center">
+            <button id="login1" mdbRipple rippleColor="orange" type="submit" class="btn btn-outline-light rounded-pill mb-4">Intră în cont</button>
+          </div>
+        </form>
+      </mdb-tab>
+
+      <mdb-tab><ng-template mdbTabTitle><span><b>Înregistrează-te</b></span></ng-template>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()" autocomplete="off" name="register">
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput formControlName="NumePrenume" type="text" class="form-control"/>
+            <label mdbLabel class="form-label" for="registerName">Nume și Prenume</label>
+          </mdb-form-control>
+
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput formControlName="Email" type="email" class="form-control"/>
+            <label mdbLabel class="form-label" for="registerEmail">Email</label>
+          </mdb-form-control>
+
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput formControlName="Telefon" type="text" class="form-control"/>
+            <label mdbLabel class="form-label" for="registerPhone" style="border: 0px;">Număr de telefon</label>
+          </mdb-form-control>
+
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput formControlName="Parola" type="password" class="form-control"/>
+            <label mdbLabel class="form-label" for="registerPassword">Parola</label>
+          </mdb-form-control>
+
+          <mdb-form-control class="mb-4 form-white">
+            <input mdbInput formControlName="confirmaParola" type="password" class="form-control"/>
+            <label mdbLabel class="form-label" for="registerRepeatPassword">Confirmă parola</label>
+          </mdb-form-control>
+
+          <div class="form-check d-flex justify-content-center mb-4">
+            <input mdbCheckbox formControlName="checkboxRegister" class="form-check-input me-2" type="checkbox" value=""/>
+            <label class="form-check-label" for="registerCheck">Am citit termenii și condițiile.</label>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <button id="register" mdbRipple rippleColor="orange" type="submit" class="btn btn-outline-light rounded-pill mb-3">Înregistrează-te</button>
+          </div>
+        </form>
+      </mdb-tab>
+
+    </mdb-tabs>
+    
+  </div>
+</div>
